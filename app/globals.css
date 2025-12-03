@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles globaux personnalisés */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  /* Cartes avec effet de verre */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg;
+  }
+  
+  /* Boutons avec effet de dégradé */
+  .gradient-button {
+    @apply bg-gradient-to-r from-sage-600 to-sage-700 hover:from-sage-700 hover:to-sage-800 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  /* Animations personnalisées */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Indicateurs de signaux */
+  .signal-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .signal-buy {
+    @apply bg-signal-buy/10 text-signal-buy;
+  }
+  
+  .signal-sell {
+    @apply bg-signal-sell/10 text-signal-sell;
+  }
+  
+  .signal-neutral {
+    @apply bg-signal-neutral/10 text-signal-neutral;
+  }
+}
+
+@layer utilities {
+  /* Scrollbar personnalisée */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.sage.400') theme('colors.sage.100');
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: theme('colors.sage.100');
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: theme('colors.sage.400');
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.sage.500');
+  }
+}
+
+/* Keyframes personnalisés */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Styles pour les graphiques */
+.chart-container {
+  @apply relative bg-white rounded-lg shadow-sm border border-sage-200 p-4;
+}
+
+.chart-tooltip {
+  @apply absolute bg-charcoal-900 text-white text-xs rounded-lg px-2 py-1 pointer-events-none z-10;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+}
+
+/* Impression */
+@media print {
+  .no-print {
+    @apply hidden;
+  }
+  
+  .print-only {
+    @apply block;
+  }
+}
+
+/* Mode sombre (préparation) */
+@media (prefers-color-scheme: dark) {
+  /* Styles pour le mode sombre - à implémenter plus tard */
+}
+
+/* Accessibilité */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible pour l'accessibilité */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-sage-500 ring-opacity-75;
+}
+
+/* Animations de chargement */
+.loading-spinner {
+  @apply animate-spin rounded-full h-6 w-6 border-b-2 border-sage-600;
+}
+
+.loading-dots {
+  @apply inline-flex space-x-1;
+}
+
+.loading-dots > div {
+  @apply w-2 h-2 bg-sage-600 rounded-full animate-bounce;
+}
+
+.loading-dots > div:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-dots > div:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Transitions fluides */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Ombres personnalisées */
+.shadow-soft {
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Bordures personnalisées */
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-dotted {
+  border-style: dotted;
+}
+
+/* Gradients personnalisés */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, theme('colors.sage.600') 0%, theme('colors.sage.700') 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, theme('colors.charcoal.600') 0%, theme('colors.charcoal.700') 100%);
+}
+
+/* Textes avec gradient */
+.text-gradient {
+  background: linear-gradient(135deg, theme('colors.sage.600'), theme('colors.sage.700'));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

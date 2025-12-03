@@ -1,0 +1,54 @@
+{
+  "name": "signaux-auto-dashboard",
+  "version": "1.0.0",
+  "description": "Système de signaux de marché avec dashboard interactif",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "server": "node server.js",
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "install-all": "npm install",
+    "start:prod": "npm run build && npm run server",
+    "deploy": "node deploy.js",
+    "start:single": "./start.sh"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "axios": "^1.6.0",
+    "yahoo-finance2": "^2.11.0",
+    "recharts": "^2.8.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "lucide-react": "^0.294.0",
+    "date-fns": "^2.30.0",
+    "zustand": "^4.4.0",
+    "ws": "^8.14.0",
+    "socket.io": "^4.7.0",
+    "socket.io-client": "^4.7.0",
+    "technicalindicators": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "concurrently": "^8.2.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "server": "node server.js",
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "start:prod": "npm run build && node server.js",
+    "start:single": "./start.sh"
+  }
+  
+}
